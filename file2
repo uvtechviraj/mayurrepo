@@ -2,4 +2,7 @@ This is file2.
 
 changes are being made 
 
-This is to show how git doff --staged cmd works 
+
+I have deleted previous line and inserted this new line in this file 
+
+
