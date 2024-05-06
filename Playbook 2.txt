@@ -1,0 +1,31 @@
+---
+- name: Install and Start Services
+  hosts: all
+  become: true
+  tasks:
+    - name: Install necessary packages
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - nginx
+        - mysql-server
+        - redis-server
+
+    - name: Start nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Start MySQL service
+      service:
+        name: mysql
+        state: started
+        enabled: true
+
+    - name: Start Redis service
+      service:
+        name: redis
+        state: started
+        enabled: true

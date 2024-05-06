@@ -1,0 +1,29 @@
+---
+- name: cloning repo
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: cloning repo
+    git:
+      repo: https://uvtechviraj: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@github.com/uvtechviraj/A1repo.git
+      dest: /home/ansadmin/vaulttest
+
+
+if a error is thrown change the dest to /home/ansadmin/vaulttest --> create a directory where it can be cloned.
+
+
+
+
+
+---
+- name: cloning repo
+  hosts: all
+  gather_facts: no
+  vars_files:
+    - vault2.yml
+  tasks:
+  - name: cloning repo
+    git:
+      repo: https://uvtechviraj:{{ git_password }}@github.com/uvtechviraj/A1repo.git
+      dest: /home/ansadmin/vaulttest
